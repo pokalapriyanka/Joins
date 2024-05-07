@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="3px">
+        <h1>Inner Equijoins</h1>
+        <tr>
+            <th>Emp_no</th>
+            <th>Emp_name</th>
+            <th>job</th>
+            <th>Sal</th>
+            <th>Mgr</th>
+            <th>Commi</th>
+            <th>Hiredate</th>
+            <th>Deptno</th>
+            <th>D_name</th>
+            <th>D_loc</th>
+        </tr>
+        {% for ieo in JDED %}
+        <tr>
+            <td>{{ ieo.Emp_no }}</td>
+            <td>{{ ieo.Emp_name }}</td>
+            <td>{{ ieo.job }}</td>
+            <td>{{ ieo.Sal }}</td>  
+            <td>{{ ieo.Mgr }}</td>
+            <td>{{ ieo.Commi }}</td>
+            <td>{{ ieo.Hiredate }}</td>
+            <td>{{ ieo.Deptno }}</td>
+            <td>{{ ieo.Deptno.D_name }}</td>
+            <td>{{ ieo.Deptno.D_loc }}</td>
+
+            </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</body>
+</html>
