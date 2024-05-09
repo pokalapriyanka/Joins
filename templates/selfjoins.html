@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <table border="3px">
+        <tr>
+            <th>Emp_name</th>
+            <th>Emp_no</th>
+            <th>Managername</th>
+            <th>Manager no</th>
+            <th>Employee Salary</th>
+            <th>Hiredate</th>
+        </tr>
+        {% for meo in MEJD %}
+        <tr>
+            <td>{{meo.Emp_name}}</td>
+            <td>{{meo.Emp_no}}</td>
+            <td>{{meo.Mgr.Emp_name}}</td>
+            <td>{{meo.Mgr.Emp_no}}</td>
+            <td>{{meo.Mgr.Sal}}</td>
+            <td>{{meo.Mgr.Hiredate}}</td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+    </body>
+</html>

@@ -26,11 +26,21 @@ def innerEquijoins(request):
     JDED=Emp.objects.select_related('Deptno').filter(Q(Deptno=10) | Q(Deptno=20) & Q(Deptno__D_name='Research'))
     JDED=Emp.objects.select_related('Deptno').filter(job='Clerk',Emp_name__endswith='h')
     JDED=Emp.objects.select_related('Deptno').filter(Sal__lte=2500,Deptno=20)
-    
-
-
-
-
-
     d={'JDED':JDED}
     return render(request,'innerEquijoins.html',d)
+
+def selfjoins(request):
+
+    MEJD=Emp.objects.select_related('Mgr').all()
+    MEJD=Emp.objects.select_related('Mgr').filter(Mgr__Emp_name='Smith')
+    MEJD=Emp.objects.select_related('Mgr').filter(Mgr__Emp_no=2222)
+    MEJD=Emp.objects.select_related('Mgr').filter(Mgr__Emp_name__contains='i')
+    MEJD=Emp.objects.select_related('Mgr').filter(Mgr__Commi__isnull=True)
+    MEJD=Emp.objects.select_related('Mgr').filter(Mgr__Sal__gte=2000)
+    MEJD=Emp.objects.select_related('Mgr').filter(Mgr__Hiredate__year='2023')
+    MEJD=Emp.objects.select_related('Mgr').filter(Mgr__Emp_name='Allen')
+    MEJD=Emp.objects.select_related('Mgr').filter(Mgr__Emp_name__startswith='S')
+
+
+    d={'MEJD':MEJD}
+    return render(request,'selfjoins.html',d)
